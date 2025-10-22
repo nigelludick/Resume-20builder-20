@@ -41,7 +41,9 @@ export const handleGenerateResume: RequestHandler = async (req, res) => {
           data.email,
           data.phone,
           data.nationality ? `Nationality: ${data.nationality}` : "",
-        ].filter(Boolean).join(" • "),
+        ]
+          .filter(Boolean)
+          .join(" • "),
       },
       summary: data.summary,
       experience: [
@@ -52,11 +54,12 @@ export const handleGenerateResume: RequestHandler = async (req, res) => {
           details: data.experience,
         },
       ],
-      education: [
-        { school: data.education },
-      ],
+      education: [{ school: data.education }],
       skills: skillsArr,
-      meta: { persona: persona ?? "concise_resume", template: template ?? "modern" },
+      meta: {
+        persona: persona ?? "concise_resume",
+        template: template ?? "modern",
+      },
     };
 
     res.json({ ok: true, openai });

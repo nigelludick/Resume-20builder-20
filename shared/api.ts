@@ -11,7 +11,14 @@ export interface DemoResponse {
   message: string;
 }
 
-export type ResumeTemplate = "modern" | "classic" | "minimal" | "elegant" | "timeline" | "photo-sidebar" | "two-column";
+export type ResumeTemplate =
+  | "modern"
+  | "classic"
+  | "minimal"
+  | "elegant"
+  | "timeline"
+  | "photo-sidebar"
+  | "two-column";
 
 export interface ResumeFormData {
   name: string;
