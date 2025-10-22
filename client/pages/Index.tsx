@@ -77,15 +77,15 @@ export default function Index() {
         <div className="max-w-6xl mx-auto px-4 py-4 flex items-center justify-between">
           <div className="flex items-center gap-2">
             <div className="h-8 w-8 rounded-md bg-gradient-to-br from-blue-600 to-violet-600" />
-            <span className="font-semibold text-slate-800">ResumeCraft</span>
+            <span className="font-semibold text-slate-800"><p><strong><u>Ai Resume Builder </u></strong></p></span>
           </div>
-          <div className="text-sm text-slate-500 hidden sm:block">Build a polished resume in minutes</div>
+          <div className="text-sm text-slate-500 hidden sm:block"><p><strong><em><u>Created by Nigel</u></em></strong></p></div>
         </div>
       </header>
 
       <main className="max-w-6xl mx-auto px-4 py-8 grid gap-6 lg:grid-cols-2">
         <section className="bg-white/90 backdrop-blur border rounded-xl p-4 sm:p-6 shadow-sm">
-          <h2 className="text-lg font-semibold text-slate-800 mb-4">Your details</h2>
+          <h2 className="text-lg font-semibold text-slate-800 mb-4"><p><strong>Your details</strong></p></h2>
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
             {([
               "name",
@@ -95,7 +95,7 @@ export default function Index() {
               "nationality",
             ] as (keyof ResumeFormData)[]).map((key) => (
               <div key={key} className="space-y-2">
-                <Label htmlFor={key}>{key.charAt(0).toUpperCase() + key.slice(1)}</Label>
+                <Label htmlFor={key}><p><strong>{key.charAt(0).toUpperCase() + key.slice(1)}</strong></p></Label>
                 <Input
                   id={key}
                   value={form[key]}
@@ -104,7 +104,7 @@ export default function Index() {
               </div>
             ))}
             <div className="sm:col-span-2 space-y-2">
-              <Label htmlFor="photoUrl">Photo URL (optional)</Label>
+              <Label htmlFor="photoUrl"><p><strong>Photo URL (optional)</strong></p></Label>
               <Input
                 id="photoUrl"
                 value={form.photoUrl ?? ""}
@@ -112,7 +112,7 @@ export default function Index() {
               />
             </div>
             <div className="sm:col-span-2 space-y-2">
-              <Label htmlFor="summary">Summary</Label>
+              <Label htmlFor="summary"><p><strong>Summary</strong></p></Label>
               <Textarea
                 id="summary"
                 rows={3}
@@ -121,7 +121,7 @@ export default function Index() {
               />
             </div>
             <div className="sm:col-span-2 space-y-2">
-              <Label htmlFor="experience">Experience</Label>
+              <Label htmlFor="experience"><p><strong>Experience</strong></p></Label>
               <Textarea
                 id="experience"
                 rows={4}
@@ -130,7 +130,7 @@ export default function Index() {
               />
             </div>
             <div className="sm:col-span-2 space-y-2">
-              <Label htmlFor="education">Education</Label>
+              <Label htmlFor="education"><p><strong>Education</strong></p></Label>
               <Input
                 id="education"
                 value={form.education}
@@ -138,7 +138,7 @@ export default function Index() {
               />
             </div>
             <div className="sm:col-span-2 space-y-2">
-              <Label htmlFor="skills">Skills (comma separated)</Label>
+              <Label htmlFor="skills"><p><strong>Skills (comma separated)</strong></p></Label>
               <Input
                 id="skills"
                 value={form.skills}
