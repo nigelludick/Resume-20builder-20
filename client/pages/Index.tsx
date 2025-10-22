@@ -364,6 +364,148 @@ function ResumeRenderer({
     );
   }
 
+  if (template === "timeline") {
+    return (
+      <div className="space-y-6">
+        <div>
+          <h1 className="text-2xl font-bold text-slate-900">{header.name}</h1>
+          <div className="text-slate-700">{header.title}</div>
+          <div className="text-slate-500 text-sm">{header.contact}</div>
+        </div>
+        <section>
+          <SectionTitle>Summary</SectionTitle>
+          <p className="text-slate-700 leading-relaxed">{summary}</p>
+        </section>
+        <section className="space-y-5">
+          <SectionTitle>Experience</SectionTitle>
+          <div className="relative pl-6">
+            <div className="absolute left-2 top-0 bottom-0 w-px bg-slate-200" />
+            {experience.map((ex, i) => (
+              <div key={i} className="relative pb-4">
+                <div className="absolute -left-[6px] top-1.5 h-3 w-3 rounded-full bg-gradient-to-br from-blue-600 to-violet-600" />
+                <div className="font-medium text-slate-900">{ex.role} <span className="text-slate-600">— {ex.company}</span> {ex.period ? (<span className="text-xs text-slate-500">{ex.period}</span>) : null}</div>
+                <div className="text-slate-700 text-sm">{ex.details}</div>
+              </div>
+            ))}
+          </div>
+        </section>
+        <section className="space-y-2">
+          <SectionTitle>Education</SectionTitle>
+          {education.map((ed, i) => (
+            <div key={i} className="text-slate-700">{ed.school}</div>
+          ))}
+        </section>
+        <section className="space-y-2">
+          <SectionTitle>Skills</SectionTitle>
+          <div className="text-slate-700">
+            {Array.isArray(skills) ? (skills as string[]).join(", ") : skills}
+          </div>
+        </section>
+      </div>
+    );
+  }
+
+  if (template === "photo-sidebar") {
+    return (
+      <div className="grid md:grid-cols-3 gap-6">
+        <aside className="md:col-span-1 space-y-4">
+          <div className="flex flex-col items-center text-center gap-3">
+            {form.photoUrl ? (
+              <img src={form.photoUrl} alt={header.name} className="h-28 w-28 rounded-full object-cover border" />
+            ) : (
+              <div className="h-28 w-28 rounded-full bg-gradient-to-br from-blue-600 to-violet-600" />
+            )}
+            <div>
+              <div className="text-lg font-semibold text-slate-900">{header.name}</div>
+              <div className="text-slate-600">{header.title}</div>
+              <div className="text-slate-500 text-sm">{header.contact}</div>
+            </div>
+          </div>
+          <div>
+            <SectionTitle>Skills</SectionTitle>
+            <div className="flex flex-wrap gap-1.5">
+              {(Array.isArray(skills) ? skills : String(skills).split(",")).map((s, i) => (
+                <span key={i} className="text-[11px] px-2 py-0.5 rounded-full bg-slate-100 text-slate-700 border border-slate-200">{String(s).trim()}</span>
+              ))}
+            </div>
+          </div>
+          <div>
+            <SectionTitle>Education</SectionTitle>
+            {education.map((ed, i) => (
+              <div key={i} className="text-slate-700">{ed.school}</div>
+            ))}
+          </div>
+        </aside>
+        <section className="md:col-span-2 space-y-5">
+          <div>
+            <SectionTitle>Profile</SectionTitle>
+            <p className="text-slate-700 leading-relaxed">{summary}</p>
+          </div>
+          <div className="space-y-3">
+            <SectionTitle>Experience</SectionTitle>
+            {experience.map((ex, i) => (
+              <div key={i} className="p-3 rounded-md border">
+                <div className="flex flex-wrap items-baseline gap-2">
+                  <span className="font-medium text-slate-900">{ex.role}</span>
+                  <span className="text-slate-600">— {ex.company}</span>
+                  {ex.period ? <span className="ml-auto text-xs text-slate-500">{ex.period}</span> : null}
+                </div>
+                <div className="text-slate-700 text-sm mt-1">{ex.details}</div>
+              </div>
+            ))}
+          </div>
+        </section>
+      </div>
+    );
+  }
+
+  if (template === "two-column") {
+    return (
+      <div className="grid md:grid-cols-3 gap-6">
+        <section className="md:col-span-1 space-y-4">
+          <div>
+            <h1 className="text-2xl font-bold text-slate-900">{header.name}</h1>
+            <div className="text-slate-700">{header.title}</div>
+            <div className="text-slate-500 text-sm">{header.contact}</div>
+          </div>
+          <div>
+            <SectionTitle>Summary</SectionTitle>
+            <p className="text-slate-700 text-sm">{summary}</p>
+          </div>
+          <div>
+            <SectionTitle>Skills</SectionTitle>
+            <div className="flex flex-wrap gap-1.5">
+              {(Array.isArray(skills) ? skills : String(skills).split(",")).map((s, i) => (
+                <span key={i} className="text-[11px] px-2 py-0.5 rounded-md bg-slate-100 text-slate-700 border border-slate-200">{String(s).trim()}</span>
+              ))}
+            </div>
+          </div>
+        </section>
+        <section className="md:col-span-2 space-y-5">
+          <div className="space-y-3">
+            <SectionTitle>Experience</SectionTitle>
+            {experience.map((ex, i) => (
+              <div key={i}>
+                <div className="flex flex-wrap items-baseline gap-2">
+                  <span className="font-medium text-slate-900">{ex.role}</span>
+                  <span className="text-slate-600">— {ex.company}</span>
+                  {ex.period ? <span className="ml-auto text-xs text-slate-500">{ex.period}</span> : null}
+                </div>
+                <div className="text-slate-700 text-sm mt-1">{ex.details}</div>
+              </div>
+            ))}
+          </div>
+          <div>
+            <SectionTitle>Education</SectionTitle>
+            {education.map((ed, i) => (
+              <div key={i} className="text-slate-700">{ed.school}</div>
+            ))}
+          </div>
+        </section>
+      </div>
+    );
+  }
+
   // classic (default)
   return (
     <div className="space-y-5">
