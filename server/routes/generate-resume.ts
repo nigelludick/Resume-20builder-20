@@ -17,7 +17,7 @@ export const handleGenerateResume: RequestHandler = async (req, res) => {
     const { persona, data, template } = req.body as {
       persona?: string;
       data?: ResumeForm;
-      template?: "modern" | "classic" | string;
+      template?: string;
     };
 
     if (!data) {
