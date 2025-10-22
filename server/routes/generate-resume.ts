@@ -10,6 +10,7 @@ interface ResumeForm {
   education: string;
   skills: string;
   photoUrl?: string;
+  nationality?: string;
 }
 
 export const handleGenerateResume: RequestHandler = async (req, res) => {
@@ -36,7 +37,11 @@ export const handleGenerateResume: RequestHandler = async (req, res) => {
       header: {
         name: data.name,
         title: data.title,
-        contact: `${data.email} • ${data.phone}`,
+        contact: [
+          data.email,
+          data.phone,
+          data.nationality ? `Nationality: ${data.nationality}` : "",
+        ].filter(Boolean).join(" • "),
       },
       summary: data.summary,
       experience: [

@@ -33,6 +33,7 @@ export default function Index() {
     education: "B.Des — University of Design",
     skills: "Figma, React, Design Systems, Prototyping, UX Research",
     photoUrl: "https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=256&h=256&fit=crop&crop=faces&q=80&auto=format",
+    nationality: "",
   });
   const [loading, setLoading] = useState(false);
   const [generated, setGenerated] = useState<GeneratedResumeData | { error: string } | null>(null);
@@ -91,6 +92,7 @@ export default function Index() {
               "title",
               "email",
               "phone",
+              "nationality",
             ] as (keyof ResumeFormData)[]).map((key) => (
               <div key={key} className="space-y-2">
                 <Label htmlFor={key}>{key.charAt(0).toUpperCase() + key.slice(1)}</Label>
@@ -214,7 +216,11 @@ function ResumeRenderer({
   const header = r.header || {
     name: form.name,
     title: form.title,
-    contact: `${form.email} • ${form.phone}`,
+    contact: [
+      form.email,
+      form.phone,
+      form.nationality ? `Nationality: ${form.nationality}` : "",
+    ].filter(Boolean).join(" • "),
   };
   const summary = r.summary || form.summary;
   const experience = r.experience || [

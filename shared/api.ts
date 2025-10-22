@@ -23,6 +23,7 @@ export interface ResumeFormData {
   education: string;
   skills: string;
   photoUrl?: string;
+  nationality?: string;
 }
 
 export interface ResumeExperienceItem {
