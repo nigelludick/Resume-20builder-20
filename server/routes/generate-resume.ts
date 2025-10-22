@@ -9,6 +9,7 @@ interface ResumeForm {
   experience: string;
   education: string;
   skills: string;
+  photoUrl?: string;
 }
 
 export const handleGenerateResume: RequestHandler = async (req, res) => {
