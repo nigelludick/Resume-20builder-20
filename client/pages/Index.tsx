@@ -102,6 +102,14 @@ export default function Index() {
               </div>
             ))}
             <div className="sm:col-span-2 space-y-2">
+              <Label htmlFor="photoUrl">Photo URL (optional)</Label>
+              <Input
+                id="photoUrl"
+                value={form.photoUrl ?? ""}
+                onChange={(e) => setForm({ ...form, photoUrl: e.target.value })}
+              />
+            </div>
+            <div className="sm:col-span-2 space-y-2">
               <Label htmlFor="summary">Summary</Label>
               <Textarea
                 id="summary"
