@@ -32,6 +32,7 @@ export default function Index() {
       "Lead Designer at Acme Corp (2020-2024): Led redesign of core product increasing engagement by 24%. Mentored a team of 5 designers and built scalable design systems.",
     education: "B.Des — University of Design",
     skills: "Figma, React, Design Systems, Prototyping, UX Research",
+    photoUrl: "https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=256&h=256&fit=crop&crop=faces&q=80&auto=format",
   });
   const [loading, setLoading] = useState(false);
   const [generated, setGenerated] = useState<GeneratedResumeData | { error: string } | null>(null);
