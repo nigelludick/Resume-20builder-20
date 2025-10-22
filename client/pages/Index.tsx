@@ -144,6 +144,8 @@ export default function Index() {
               <SelectContent>
                 <SelectItem value="modern">Modern</SelectItem>
                 <SelectItem value="classic">Classic</SelectItem>
+                <SelectItem value="minimal">Minimal</SelectItem>
+                <SelectItem value="elegant">Elegant</SelectItem>
               </SelectContent>
             </Select>
 
