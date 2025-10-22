@@ -155,6 +155,9 @@ export default function Index() {
                 <SelectItem value="classic">Classic</SelectItem>
                 <SelectItem value="minimal">Minimal</SelectItem>
                 <SelectItem value="elegant">Elegant</SelectItem>
+                <SelectItem value="timeline">Timeline</SelectItem>
+                <SelectItem value="photo-sidebar">Photo Sidebar</SelectItem>
+                <SelectItem value="two-column">Two Column</SelectItem>
               </SelectContent>
             </Select>
 
