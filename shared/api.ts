@@ -11,7 +11,7 @@ export interface DemoResponse {
   message: string;
 }
 
-export type ResumeTemplate = "modern" | "classic";
+export type ResumeTemplate = "modern" | "classic" | "minimal" | "elegant";
 
 export interface ResumeFormData {
   name: string;
